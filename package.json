@@ -1,0 +1,36 @@
+{
+  "name": "node_proyecto_final_ecomerce_api",
+  "version": "1.0.0",
+  "description": "node_proyecto_final_ecomerce_api",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon",
+    "seed": "node scripts/seed.js",
+    "serve:public": "serve public",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Vincenzo Natale",
+  "license": "MIT",
+  "type": "module",
+  "imports": {
+    "#config/*": "./src/config/*",
+    "#controllers/*": "./src/controllers/*",
+    "#middlewares/*": "./src/middlewares/*",
+    "#models/*": "./src/models/*",
+    "#routes/*": "./src/routes/*",
+    "#services/*": "./src/services/*"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "firebase": "^11.10.0",
+    "jsonwebtoken": "^9.0.2"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  }
+}

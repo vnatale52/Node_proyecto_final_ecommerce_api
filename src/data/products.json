@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "name": "Lámpara de Escritorio LED",
+    "price": 45.99,
+    "category": ["hogar", "accesorios"]
+  },
+  {
+    "id": "2",
+    "name": "Set de Cojines Decorativos",
+    "price": 29.99,
+    "category": ["hogar"]
+  },
+  {
+    "id": "3",
+    "name": "Funda para Laptop 15\"",
+    "price": 25.00,
+    "category": ["accesorios"]
+  },
+  {
+    "id": "4",
+    "name": "Reloj de Pared Moderno",
+    "price": 60.50,
+    "category": ["hogar"]
+  },
+  {
+    "id": "5",
+    "name": "Mouse Inalámbrico Ergonómico",
+    "price": 35.00,
+    "category": ["accesorios"]
+  }
+]

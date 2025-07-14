@@ -1,0 +1,18 @@
+# carpetas excluidas de ser subidas a Github
+carpeta_excluida_de_github
+
+
+# Dependencias
+node_modules
+
+# Archivos de entorno
+.env
+
+# Logs
+npm-debug.log
+
+
+
+
+
+
