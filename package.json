@@ -32,5 +32,13 @@
   },
   "devDependencies": {
     "serve": "^14.2.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vnatale52/backend_proyecto_final_ecommerce_api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vnatale52/backend_proyecto_final_ecommerce_api/issues"
+  },
+  "homepage": "https://github.com/vnatale52/backend_proyecto_final_ecommerce_api#readme"
 }
