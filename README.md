@@ -52,17 +52,7 @@ __ README.md                         #  Documentación principal del proyecto.
 
 
 
-Frontend_proyecto_final_ecomerce/
-
-__ public :  index.html : # código de html del frontend
-             styles.css : # código de estilos
-
-             js :      main.js   # Archivo de entrada principal para el frontend
-                       api.js    # API
-                        ui.js    # Simple user interfase
-
-
-Descripción Detallada de Archivos y Responsabilidades (sólo para el Frontend)
+Descripción Detallada de Archivos y Responsabilidades:
 
 Raíz del Proyecto (/)
 
@@ -131,6 +121,7 @@ git commit -m  "Para incorporar nuevas rutas de productos" // Crea una "foto ins
 git push origin main    //  Para enviar  todos los commits  desde tu computadora local al repositorio GitHub.  Si el repositorio en GitHub  tuviera cambios que no existen en el repositorio local, Git no  dejará usar git push directamente, dado que antes es necesario sincronizar.
 git pull origin main –rebase. Para descargar e integrar los cambios en Github al repositorio local; el repositorio local quedará actualizado a nivel del remoto en GitHub.
 
+
 En esta aplicación Fullstack se ha implementado la siguiente cadena de eventos:
 
   *   Frontend (Static Site en Render): Se cargó correctamente en el navegador desde la URL pública:   https://frontend-proyecto-final-ecommerce-api.onrender.com/
@@ -147,8 +138,50 @@ En esta aplicación Fullstack se ha implementado la siguiente cadena de eventos:
   *   Actualización de la User Interfase: El frontend recibió la respuesta de éxito y actualizó la lista de productos en tiempo real.
 Se ha construido y desplegado una aplicación Full-Stack completa. 
 
-¡Un gran paso para Vincenzo! (aunque no para la humanidad).
+
+Resumen del Frontend: Gestor de Productos:
+Este frontend es una Aplicación de Una Sola Página (Single Page Application - SPA) desarrollada con HTML, CSS y JavaScript puro (Vanilla JS). Su propósito es consumir la API RESTful del backend para proporcionar una interfaz gráfica de usuario (GUI) que permita a los usuarios visualizar, crear, editar y eliminar productos de la tienda, así como gestionar su sesión mediante un sistema de autenticación.
+
+Estructura de Archivos del Frontend
+El código del frontend reside en la carpeta public y está organizado de la siguiente manera:
+
+public/
+¦
++-- index.html            # La estructura principal y el esqueleto de la aplicación.
++-- styles.css            # Hoja de estilos para la apariencia visual y el diseño.
++-- js/                   # Carpeta que contiene toda la lógica de la aplicación.
+    ¦
+    +-- api.js            # Módulo de comunicación: maneja todas las peticiones a la API del backend.
+    +-- ui.js             # Módulo de interfaz: controla la manipulación del DOM (lo que el usuario ve).
+    +-- main.js           # Módulo principal: orquesta la aplicación, maneja el estado y los eventos.
 
 
+index.html
+ Es la base de toda la aplicación. Contiene la estructura semántica de todos los elementos visuales, como el encabezado, el área de visualización de productos, los formularios y el modal para la creación/edición.
+Importancia: Define todos los id y class que los archivos JavaScript utilizan para seleccionar y manipular elementos del DOM. También es responsable de cargar la hoja de estilos (styles.css) y el punto de entrada de JavaScript (main.js), utilizando el atributo type="module" para habilitar la sintaxis de módulos de ES6 (import/export).
+
+styles.css
+ Proporciona la capa de presentación visual de la aplicación. Define los colores, fuentes, espaciados, diseño de la cuadrícula de productos y la apariencia del modal.
+Importancia: Separa completamente el estilo de la estructura (HTML) y la lógica (JS), siguiendo las mejores prácticas del desarrollo web. Hace que la aplicación sea intuitiva y agradable a la vista.
+
+Carpeta /js
+Esta carpeta contiene el cerebro de la aplicación, dividido en tres módulos especializados:
+
+js/api.js - La Capa de Datos (Comunicador)
+Responsabilidad: Contiene todas las funciones async/await que realizan peticiones fetch al backend. Cada función (ej: getProducts, login, createProduct) se corresponde con un endpoint de la API.
+Importancia: Centraliza toda la lógica de comunicación con el servidor en un solo lugar. Si la URL del backend cambia, solo necesita ser modificada en este archivo. También maneja la inclusión del token de autorización en las cabeceras de las peticiones protegidas.
+
+js/ui.js - La Capa de Vista (Manipulador del DOM)
+Responsabilidad: Contiene funciones dedicadas a manipular directamente la interfaz de usuario. Por ejemplo, renderProducts() crea las tarjetas de los productos y las inserta en el HTML, updateAuthUI() muestra u oculta elementos dependiendo del estado de autenticación del usuario, y showModal()/hideModal() controlan la visibilidad del formulario emergente.
+Importancia: Abstrae la manipulación del DOM del resto de la lógica. Si se decide cambiar cómo se muestra la lista de productos (por ejemplo, de una cuadrícula a una lista), solo habría que modificar la función renderProducts() en este archivo.
+
+js/main.js - El Orquestador (Controlador Principal)
+Responsabilidad: Es el punto de entrada y el director de orquesta del frontend.
+Maneja el Estado: Mantiene variables clave como la lista actual de productos y el token de autenticación.
+Asigna Eventos: Utiliza addEventListener para "escuchar" las acciones del usuario (clics en botones, envíos de formularios) y asociarlas con las funciones correspondientes (ej: handleLogin, handleProductFormSubmit).
+Coordina los Módulos: Cuando ocurre un evento, main.js llama a las funciones apropiadas de api.js para obtener o enviar datos y, una vez que tiene una respuesta, llama a las funciones de ui.js para actualizar la pantalla.
+Importancia: Conecta todas las piezas y define el flujo lógico de la aplicación desde la perspectiva del usuario. Gestiona el ciclo de vida de la aplicación, desde la carga inicial de datos hasta la interacción del usuario.
+
+¡Un gran paso para Vincenzo! (aunque no lo sea para la humanidad).
 
 Autor:   Vincenzo Natale,  vnatale52@gmail.com,   Curso:  Back-End / Node JS, TT Adultos - 1C 2025
