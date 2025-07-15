@@ -13,11 +13,23 @@ Tecnologías Utilizadas:   Node.js,  Express, Firestore, JWT.
 Estructura de Carpetas y Archivos:
 A continuación se detalla la estructura completa del proyecto, explicando la importancia y la función de cada archivo clave. Se indican la carpeta del proyecto y sus subcarpetas.
 
+A los efectos de documentar el código de una manera estandarizada para que tanto otros programadores como herramientas automáticas puedan entender qué hace una función, qué necesita y qué devuelve, se ha agregado el generador de documentación JSDOC. Ejemplo de ello es el siguiente bloque:
+
+/**
+ * Obtiene todos los productos de la colección.
+ * @returns {Promise<Array>} Un array con todos los productos.
+ */
+
+
 Backend_proyecto_final_ecomerce_api/
   
 ¦
 __ node_modules/             # (Carpeta autogenerada) Contiene todas las dependencias del proyecto.
+
+__ scripts/                      
 ¦
+¦     __ seed.js             # Copia automática y directamente los productos desde un archivo JSON  a documentos en Firebase
+¦   ¦
 __ src/                      # Carpeta principal que contiene todo el código fuente de la aplicación.
 ¦   ¦
 ¦   __ app.js                # Corazón y punto de entrada de la aplicación.

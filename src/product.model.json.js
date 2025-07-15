@@ -3,7 +3,7 @@
 import fs from 'fs/promises';
 import path from 'path';
 
-const productsPath = path.resolve('#src/data/products.json');    // no tenía ./  colocado #
+const productsPath = path.resolve('#src/data/products.json');    //  colocado #
 
 // Función para leer los productos desde el archivo JSON
 async function readProducts() {
@@ -11,7 +11,7 @@ async function readProducts() {
     const data = await fs.readFile(productsPath, 'utf8');
     return JSON.parse(data);
   } catch (error) {
-    // Si el archivo no existe o hay un error, devolvemos un array vacío
+    // Si el archivo no existe o hay un error,'ENOENT', se devuelve un array vacío
     if (error.code === 'ENOENT') {
       return [];
     }

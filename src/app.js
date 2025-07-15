@@ -15,17 +15,17 @@ import productRoutes from '#routes/products.routes.js';
 import authRoutes from '#routes/auth.routes.js';
 
 // --- 2. CONFIGURACIÓN INICIAL ---
-// Carga las variables de entorno del archivo .env. Es crucial hacerlo al principio (después de las importaciones).
+// Carga las variables de entorno del archivo .env. Debe hacerse al principio (después de las importaciones).
 dotenv.config();
 
 // Creamos una instancia de la aplicación Express.
 const app = express();
 
-// Definimos el puerto del servidor. Usamos el valor de la variable de entorno PORT, o 3000 como valor por defecto.
+// Definimos el puerto del servidor. Usamos el valor de la variable de entorno PORT, o 3000 como valor por defecto con un OR .
 const PORT = process.env.PORT || 3000;
 
 // --- 3. MIDDLEWARES GLOBALES ---
-// Habilitamos CORS para todas las rutas, permitiendo que el frontend haga peticiones a nuestra API.
+// Habilitamos CORS para todas las rutas, permitiendo que el frontend haga peticiones a la API.
 app.use(cors());
 
 // Configuramos body-parser para que la API pueda entender y procesar cuerpos de petición en formato JSON.
@@ -36,7 +36,7 @@ app.use(bodyParser.json());
 // --- 4. RUTAS DE LA API ---
 // Definimos una ruta raíz de bienvenida para una verificación rápida de que el servidor está en línea.
 app.get('/', (req, res) => {
-  res.status(200).json({ message: '¡Bienvenido a la API del E-Commerce!' });
+  res.status(200).json({ message: '¡Bienvenido a la API del E-Commerce, realizada por Vincenzo!' });
 });
 
 // Montamos las rutas de productos bajo el prefijo '/api/products'.

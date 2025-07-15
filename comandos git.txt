@@ -1,7 +1,0 @@
-git add .
-git commit -m "build: Versión inicial del frontend"
-git branch -M main
-git push -u -f origin main
-git status
-
-falta git remote  :   ver

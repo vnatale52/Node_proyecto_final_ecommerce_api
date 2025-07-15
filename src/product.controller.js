@@ -1,4 +1,4 @@
-// src/controllers/product.controller.js . reemplazadi  ../  por  #
+// src/controllers/product.controller.js . reemplazado  ../  por  #
 import productService from '#services/product.service.js';
 
 async function getAllProducts(req, res) {
