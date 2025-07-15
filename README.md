@@ -1,16 +1,19 @@
 Título del Proyecto:  API RESTful  para E-Commerce:
 
-Esta aplicación sólo incluye - por el momento - el código del backen, estando el código del frontend aún en desarollo, con el fin de obtener una aplicaciónn full stack.
+Esta aplicación incluye tanto el código del backend como el códido de fronted (pretendiéndose convertir en una modesta app fullstack).
 
-Esta aplicación consiste en una API RESTful  robusta y segura, desarrollada con Node.js  y  el framework Express. Su propósito es servir como el backend para una tienda en línea, permitiendo la gestión completa de productos (CRUD: Crear, Leer, Actualizar, Eliminar) y protegiendo las operaciones sensibles mediante un sistema de autenticación basado en JSON Web Tokens (JWT).
+La mimsa consiste en una API RESTful, desarrollada con Node.js  y  el framework Express. 
+Su propósito es servir como el backend para una tienda en línea, permitiendo la gestión completa de productos (CRUD: Crear, Leer, Actualizar, Eliminar) y protegiendo las operaciones sensibles mediante un sistema de autenticación basado en JSON Web Tokens (JWT).
 
-La arquitectura está diseñada para ser escalable y mantenible, separando las responsabilidades en distintas capas lógicas. Los datos de la aplicación se almacenan en una base de datos NoSQL en la nube, utilizando el servicio Firestore de Google Firebase.
-Tecnologías Utilizadas:   Node.js,  Express, Firestore,  JWT. 
+La arquitectura está diseñada para ser escalable y mantenible, separando las responsabilidades en distintas capas lógicas. 
+Los datos de la aplicación se almacenan en una base de datos NoSQL en la nube, utilizando el servicio Firestore de Google Firebase.
+
+Tecnologías Utilizadas:   Node.js,  Express, Firestore, JWT. 
 
 Estructura de Carpetas y Archivos:
 A continuación se detalla la estructura completa del proyecto, explicando la importancia y la función de cada archivo clave. Se indican la carpeta del proyecto y sus subcarpetas.
 
-Node_proyecto_final_ecomerce_api/
+Backend_proyecto_final_ecomerce_api/
   
 ¦
 __ node_modules/             # (Carpeta autogenerada) Contiene todas las dependencias del proyecto.
@@ -48,7 +51,18 @@ __ package-lock.json                 #  (Autogenerado) Registra las versiones ex
 __ README.md                         #  Documentación principal del proyecto.
 
 
-Descripción Detallada de Archivos y Responsabilidades
+
+Frontend_proyecto_final_ecomerce/
+
+__ public :  index.html : # código de html del frontend
+             styles.css : # código de estilos
+
+             js :      main.js   # Archivo de entrada principal para el frontend
+                       api.js    # API
+                        ui.js    # Simple user interfase
+
+
+Descripción Detallada de Archivos y Responsabilidades (sólo para el Frontend)
 
 Raíz del Proyecto (/)
 
@@ -116,5 +130,25 @@ git commit -m  "Para incorporar nuevas rutas de productos" // Crea una "foto ins
 
 git push origin main    //  Para enviar  todos los commits  desde tu computadora local al repositorio GitHub.  Si el repositorio en GitHub  tuviera cambios que no existen en el repositorio local, Git no  dejará usar git push directamente, dado que antes es necesario sincronizar.
 git pull origin main –rebase. Para descargar e integrar los cambios en Github al repositorio local; el repositorio local quedará actualizado a nivel del remoto en GitHub.
+
+En esta aplicación Fullstack se ha implementado la siguiente cadena de eventos:
+
+  *   Frontend (Static Site en Render): Se cargó correctamente en el navegador desde la URL pública:   https://frontend-proyecto-final-ecommerce-api.onrender.com/
+  *   Login: Se enviaron las  credenciales del usuario desde el frontend.
+  *   Comunicación Frontend -> Backend: La petición fetch viajó por internet desde la URL del frontend hasta la URL del backend en Render: https://backend-proyecto-final-ecommerce-api.onrender.com/
+  *   Recepción del Backend (Web Service en Render): La API de Node.js, corriendo en la nube, recibió la petición.
+  *   Variables de Entorno: La API en Render leyó correctamente las variables de entorno que se configuraron, incluyendo las de Firebase y la JWT_SECRET_KEY.
+  *   Autenticación: El servicio de autenticación validó las credenciales y generó un token JWT (con la duración establecida).
+  *   Respuesta del Backend -> Frontend: El token fue enviado de vuelta al navegador.
+  *   Manejo del Token: El JavaScript del navegador guardó el token en localStorage.
+  *   Petición Protegida: Al crear un nuevo producto, el frontend envió una petición POST incluyendo el token en la cabecera Authorization.
+  *   Middleware de Seguridad: El authMiddleware en el backend interceptó la petición, verificó que el token era válido y que no había expirado, y le dio paso a la ruta.
+  *   Lógica del CRUD: El controlador, servicio y modelo hicieron su trabajo, creando un nuevo documento en la base de datos de Firestore.
+  *   Actualización de la User Interfase: El frontend recibió la respuesta de éxito y actualizó la lista de productos en tiempo real.
+Se ha construido y desplegado una aplicación Full-Stack completa. 
+
+¡Un gran paso para Vincenzo! (aunque no para la humanidad).
+
+
 
 Autor:   Vincenzo Natale,  vnatale52@gmail.com,   Curso:  Back-End / Node JS, TT Adultos - 1C 2025
