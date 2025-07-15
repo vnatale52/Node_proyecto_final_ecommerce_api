@@ -34,9 +34,9 @@ function loginUser(email, password) {
       const token = jwt.sign(
         payload,
         process.env.JWT_SECRET_KEY,
-        { expiresIn: '1h' }
-      );
-
+        { expiresIn: '60d' }
+      );  // '60d'  días  o  '1h' hora o '5w'  semanas
+  
       console.log('Servicio: Credenciales válidas. Token generado.');
       // Devolvemos el token en el formato estándar Bearer.
       return { token: `Bearer ${token}` };
