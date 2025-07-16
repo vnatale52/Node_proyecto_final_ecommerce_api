@@ -69,10 +69,10 @@ El proyecto está dividido en dos partes principales: **backend** y **frontend**
 Para ejecutar este proyecto en tu máquina local, sigue estos pasos:
 1. Clonar los Repositorios
 # Clona el repositorio del backend
-git clone https://backend-proyecto-final-ecommerce-api.onrender.com/
+git clone https://github.com/vnatale52/backend_proyecto_final_ecommerce_api.git
 
 # Clona el repositorio del frontend
-git clone https://frontend-proyecto-final-ecommerce-api.onrender.com/
+git clone https://github.com/vnatale52/frontend_proyecto_final_ecommerce_api.git
 
 2. Configurar el Backend
 	1. Navega a la carpeta del backend: cd nombre-repo-backend
